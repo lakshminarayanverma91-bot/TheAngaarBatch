@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About The Angaar Batch - 6+ years of coding education excellence. Learn about our mission, vision, and commitment to trust-based learning.">
+    <meta name="keywords" content="about angaar batch, coding education, our story, mission, vision">
+    <meta name="author" content="The Angaar Batch">
+    
+    <title>About Us - The Angaar Batch | We Believe in Trust</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           DESIGN SYSTEM & CUSTOM STYLES
+        ======================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Fire Gradient Palette */
+            --fire-primary: #FF4500;
+            --fire-secondary: #FF6B35;
+            --fire-accent: #FFA500;
+            --lava-red: #DC143C;
+            --ember-orange: #FF8C00;
+            --neon-orange: #FF5722;
+            
+            /* Dark Theme */
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --bg-panel: rgba(20, 20, 20, 0.8);
+            
+            /* Glow Effects */
+            --glow-orange: 0 0 20px rgba(255, 69, 0, 0.5);
+            --glow-red: 0 0 30px rgba(255, 0, 0, 0.4);
+            --glow-strong: 0 0 40px rgba(255, 87, 34, 0.8);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Network Canvas Background */
+        #networkCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Fire Gradient Backgrounds */
+        .fire-gradient {
+            background: linear-gradient(135deg, #FF4500 0%, #FF6B35 50%, #FFA500 100%);
+        }
+        
+        .fire-text-gradient {
+            background: linear-gradient(135deg, #FF4500, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 69, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-strong {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+        
+        /* Glow Effects */
+        .glow-strong {
+            box-shadow: var(--glow-strong);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Button System */
+        .btn-fire {
+            background: linear-gradient(135deg, #FF4500, #FF6B35);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-fire::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-fire:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-fire:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.6);
+        }
+        
+        .btn-outline-fire {
+            border: 2px solid #FF4500;
+            padding: 10px 30px;
+            border-radius: 50px;
+            background: transparent;
+            color: #FF4500;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-outline-fire:hover {
+            background: #FF4500;
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 69, 0, 0.7); }
+        }
+        
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slide-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes scale-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .fade-in-up {
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+        
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Navigation Active State */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF4500, #FFA500);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #FF4500, #FFA500);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #FF6B35, #FFB84D);
+        }
+        
+        /* Focus Visible for Accessibility */
+        *:focus-visible {
+            outline: 2px solid #FF4500;
+            outline-offset: 2px;
+        }
+        
+        /* Floating Particles */
+        .particle-decoration {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: #FF4500;
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes float-particle-1 {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(20px, -30px); }
+            50% { transform: translate(-10px, -50px); }
+            75% { transform: translate(30px, -20px); }
+        }
+        
+        @keyframes float-particle-2 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(-25px, -40px); }
+            66% { transform: translate(15px, -30px); }
+        }
+        
+        /* Stats Counter */
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Timeline Line Animation */
+        .timeline-line {
+            position: relative;
+        }
+        
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 0;
+            background: linear-gradient(180deg, #FF4500, #FF6B35);
+            transition: height 1s ease;
+        }
+        
+        .timeline-line.animate::before {
+            height: 100%;
+        }
+        
+        /* Value Card Hover Effect */
+        .value-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.1), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .value-card:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+        
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Network Animation Canvas -->
+    <canvas id="networkCanvas"></canvas>
+    
+    <!-- Floating Particles -->
+    <div class="particle-decoration" style="top: 10%; left: 10%; animation: float-particle-1 8s ease-in-out infinite;"></div>
+    <div class="particle-decoration" style="top: 20%; right: 15%; animation: float-particle-2 10s ease-in-out infinite;"></div>
+    <div class="particle-decoration" style="bottom: 30%; left: 20%; animation: float-particle-1 12s ease-in-out infinite; animation-delay: 2s;"></div>
+    <div class="particle-decoration" style="bottom: 15%; right: 25%; animation: float-particle-2 9s ease-in-out infinite; animation-delay: 1s;"></div>
+    <div class="particle-decoration" style="top: 50%; left: 5%; animation: float-particle-1 11s ease-in-out infinite; animation-delay: 3s;"></div>
+    <div class="particle-decoration" style="top: 60%; right: 10%; animation: float-particle-2 13s ease-in-out infinite; animation-delay: 1.5s;"></div>
+    
+    <!-- ========================================
+         NAVIGATION BAR
+    ======================================== -->
+    <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 glass-panel transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center animate-pulse-glow">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" alt="The Angaar Batch">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">The Angaar Batch</h1>
+                        <p class="text-xs text-gray-400">We Believe in Trust</p>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-sm font-medium hover:text-orange-500">Home</a>
+                    <a href="about.html" class="nav-link text-sm font-medium hover:text-orange-500 active">About</a>
+                    <a href="our-team.html" class="nav-link text-sm font-medium hover:text-orange-500">Our Team</a>
+                    <a href="index.html#projects" class="nav-link text-sm font-medium hover:text-orange-500">Projects</a>
+                    <a href="index.html#reviews" class="nav-link text-sm font-medium hover:text-orange-500">Reviews</a>
+                    <a href="dashboard.html" class="btn-fire text-sm">Dashboard</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-gray-800" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden fixed top-0 right-0 h-full w-64 glass-strong z-50">
+            <div class="p-6">
+                <button id="closeMobileMenu" class="mb-8 text-gray-400 hover:text-white" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-lg hover:text-orange-500 mobile-nav-link">Home</a>
+                    <a href="about.html" class="text-lg text-orange-500 mobile-nav-link">About</a>
+                    <a href="our-team.html" class="text-lg hover:text-orange-500 mobile-nav-link">Our Team</a>
+                    <a href="index.html#projects" class="text-lg hover:text-orange-500 mobile-nav-link">Projects</a>
+                    <a href="index.html#reviews" class="text-lg hover:text-orange-500 mobile-nav-link">Reviews</a>
+                    <a href="dashboard.html" class="btn-fire text-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 via-orange-900/20 to-yellow-900/20"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/30 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/30 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div class="scroll-animate-scale">
+                <div class="inline-block mb-6 px-6 py-3 glass-panel rounded-full animate-float">
+                    <span class="text-orange-500 text-sm font-semibold">🔥 Empowering Students Since 2018</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                    About <span class="fire-text-gradient">The Angaar Batch</span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-300 mb-8">
+                    We Believe in <span class="text-orange-500 font-bold">Trust</span>
+                </p>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                    For over 6 years, we've been on a mission to democratize coding education, making it accessible, 
+                    free, and transformative for thousands of students worldwide.
+                </p>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="glass-panel p-6 rounded-xl stat-card glow-hover">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient counter" data-target="6">0</div>
+                        <div class="text-sm text-gray-400 mt-2">Years of Excellence</div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl stat-card glow-hover">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient counter" data-target="5000">0</div>
+                        <div class="text-sm text-gray-400 mt-2">Students Trained</div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl stat-card glow-hover">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient counter" data-target="150">0</div>
+                        <div class="text-sm text-gray-400 mt-2">Live Classes</div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl stat-card glow-hover">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient">100%</div>
+                        <div class="text-sm text-gray-400 mt-2">Free Education</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         OUR STORY TIMELINE
+    ======================================== -->
+    <section id="timeline" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Our <span class="fire-text-gradient">Journey</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    A timeline of milestones that shaped who we are today
+                </p>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="max-w-4xl mx-auto scroll-animate">
+                <div class="relative timeline-line">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-orange-500 to-red-500 hidden md:block"></div>
+                    
+                    <!-- Timeline Items -->
+                    <div class="space-y-12">
+                        <!-- Item 1 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="flex-1 text-center md:text-right scroll-animate-left">
+                                <div class="glass-panel p-6 rounded-xl glow-hover">
+                                    <h3 class="text-2xl font-bold mb-2 fire-text-gradient">2018</h3>
+                                    <h4 class="text-xl font-semibold mb-2">The Beginning</h4>
+                                    <p class="text-gray-400">Founded with a vision to make coding education accessible to everyone, regardless of their financial background. Started with just 10 students and one mentor.</p>
+                                </div>
+                            </div>
+                            <div class="w-12 h-12 fire-gradient rounded-full flex items-center justify-center glow-strong shrink-0 z-10">
+                                <span class="text-2xl">🚀</span>
+                            </div>
+                            <div class="flex-1 hidden md:block"></div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="flex-1 hidden md:block"></div>
+                            <div class="w-12 h-12 fire-gradient rounded-full flex items-center justify-center glow-strong shrink-0 z-10">
+                                <span class="text-2xl">📚</span>
+                            </div>
+                            <div class="flex-1 text-center md:text-left scroll-animate-right">
+                                <div class="glass-panel p-6 rounded-xl glow-hover">
+                                    <h3 class="text-2xl font-bold mb-2 fire-text-gradient">2020</h3>
+                                    <h4 class="text-xl font-semibold mb-2">Free Education Model</h4>
+                                    <p class="text-gray-400">Launched completely free live Zoom classes during the pandemic, reaching 1000+ students across India. Introduced our trust-based learning philosophy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="flex-1 text-center md:text-right scroll-animate-left">
+                                <div class="glass-panel p-6 rounded-xl glow-hover">
+                                    <h3 class="text-2xl font-bold mb-2 fire-text-gradient">2022</h3>
+                                    <h4 class="text-xl font-semibold mb-2">Community Growth</h4>
+                                    <p class="text-gray-400">Reached 3000+ students, launched specialized courses, and built partnerships with universities. Students started getting placed in top tech companies.</p>
+                                </div>
+                            </div>
+                            <div class="w-12 h-12 fire-gradient rounded-full flex items-center justify-center glow-strong shrink-0 z-10">
+                                <span class="text-2xl">🌱</span>
+                            </div>
+                            <div class="flex-1 hidden md:block"></div>
+                        </div>
+                        
+                        <!-- Item 4 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="flex-1 hidden md:block"></div>
+                            <div class="w-12 h-12 fire-gradient rounded-full flex items-center justify-center glow-strong shrink-0 z-10">
+                                <span class="text-2xl">🏆</span>
+                            </div>
+                            <div class="flex-1 text-center md:text-left scroll-animate-right">
+                                <div class="glass-panel p-6 rounded-xl glow-hover">
+                                    <h3 class="text-2xl font-bold mb-2 fire-text-gradient">2024</h3>
+                                    <h4 class="text-xl font-semibold mb-2">Industry Leader</h4>
+                                    <p class="text-gray-400">5000+ students trained, partnerships with top universities, launched advanced courses, and achieved 95% student satisfaction rate. The journey continues!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         MISSION & VISION
+    ======================================== -->
+    <section id="mission-vision" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-panel p-8 md:p-12 rounded-2xl glow-hover scroll-animate-scale">
+                    <div class="w-20 h-20 fire-gradient rounded-full flex items-center justify-center mb-8 mx-auto md:mx-0 animate-pulse-glow">
+                        <span class="text-4xl">🎯</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6">Our Mission</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        To democratize coding education by providing world-class, completely free programming courses 
+                        with personalized mentorship to students worldwide.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        We believe that financial constraints should never be a barrier to learning. Every student 
+                        deserves access to quality education, expert mentorship, and the opportunity to build a 
+                        successful career in technology.
+                    </p>
+                </div>
+                
+                <div class="glass-panel p-8 md:p-12 rounded-2xl glow-hover scroll-animate-scale" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 fire-gradient rounded-full flex items-center justify-center mb-8 mx-auto md:mx-0 animate-pulse-glow" style="animation-delay: 0.5s;">
+                        <span class="text-4xl">👁️</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6">Our Vision</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        To create a global community of passionate programmers who learn through trust, collaboration, 
+                        and hands-on practice, becoming industry-ready professionals.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        We envision a future where every aspiring developer has access to the resources, community, 
+                        and support they need to succeed. Our goal is to produce not just coders, but problem-solvers 
+                        and innovators who will shape the future of technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         TEACHING PHILOSOPHY
+    ======================================== -->
+    <section id="philosophy" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-strong p-8 md:p-12 rounded-2xl scroll-animate-scale">
+                <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    Our Teaching <span class="fire-text-gradient">Philosophy</span>
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center scroll-animate-scale">
+                        <div class="w-20 h-20 fire-gradient rounded-full flex items-center justify-center mb-6 mx-auto animate-pulse-glow">
+                            <span class="text-4xl">💻</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-4">Live Interactive Classes</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Real-time Zoom sessions with hands-on coding practice. Learn by doing, not just watching. 
+                            Our interactive approach ensures you understand concepts deeply.
+                        </p>
+                    </div>
+                    <div class="text-center scroll-animate-scale" style="animation-delay: 0.2s;">
+                        <div class="w-20 h-20 fire-gradient rounded-full flex items-center justify-center mb-6 mx-auto animate-pulse-glow" style="animation-delay: 0.3s;">
+                            <span class="text-4xl">👨‍🏫</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-4">1-on-1 Mentorship</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Personalized guidance for every student's journey. Get individual attention, career advice, 
+                            and support from experienced mentors who care about your success.
+                        </p>
+                    </div>
+                    <div class="text-center scroll-animate-scale" style="animation-delay: 0.4s;">
+                        <div class="w-20 h-20 fire-gradient rounded-full flex items-center justify-center mb-6 mx-auto animate-pulse-glow" style="animation-delay: 0.6s;">
+                            <span class="text-4xl">🎓</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-4">Industry Focus</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Real-world projects and job-ready skills. Learn what companies actually need. Build a 
+                            portfolio that gets you hired at top tech companies.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl">
+                    <h5 class="text-xl font-semibold mb-4 text-center">Why Trust-Based Learning?</h5>
+                    <p class="text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
+                        We believe that learning happens best in an environment of trust and collaboration. Our students 
+                        are not customers – they're part of our family. We trust them to put in the work, and they trust 
+                        us to provide the best education possible, completely free of charge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         CORE VALUES
+    ======================================== -->
+    <section id="values" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Our <span class="fire-text-gradient">Core Values</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    The principles that guide everything we do
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Value 1 -->
+                <div class="glass-panel p-6 rounded-xl glow-hover scroll-animate-scale value-card">
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center text-2xl">
+                            🤝
+                        </div>
+                        <h4 class="text-xl font-bold">Trust</h4>
+                    </div>
+                    <p class="text-gray-400 relative z-10">
+                        We build relationships based on mutual trust and respect. No hidden fees, no tricks – 
+                        just honest, quality education.
+                    </p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="glass-panel p-6 rounded-xl glow-hover scroll-animate-scale value-card" style="animation-delay: 0.1s;">
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center text-2xl">
+                            ⚡
+                        </div>
+                        <h4 class="text-xl font-bold">Excellence</h4>
+                    </div>
+                    <p class="text-gray-400 relative z-10">
+                        We maintain the highest standards in our curriculum, teaching methods, and student support. 
+                        Quality is never compromised.
+                    </p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="glass-panel p-6 rounded-xl glow-hover scroll-animate-scale value-card" style="animation-delay: 0.2s;">
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center text-2xl">
+                            🌍
+                        </div>
+                        <h4 class="text-xl font-bold">Accessibility</h4>
+                    </div>
+                    <p class="text-gray-400 relative z-10">
+                        Education should be available to everyone, everywhere. We remove barriers and make 
+                        learning accessible to all.
+                    </p>
+                </div>
+                
+                <!-- Value 4 -->
+                <div class="glass-panel p-6 rounded-xl glow-hover scroll-animate-scale value-card" style="animation-delay: 0.3s;">
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center text-2xl">
+                            👥
+                        </div>
+                        <h4 class="text-xl font-bold">Community</h4>
+                    </div>
+                    <p class="text-gray-400 relative z-10">
+                        We're more than a platform – we're a family of learners supporting each other's growth 
+                        and celebrating successes together.
+                    </p>
+                </div>
+                
+                <!-- Value 5 -->
+                <div class="glass-panel p-6 rounded-xl glow-hover scroll-animate-scale value-card" style="animation-delay: 0.4s;">
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center text-2xl">
+                            🚀
+                        </div>
+                        <h4 class="text-xl font-bold">Innovation</h4>
+                    </div>
+                    <p class="text-gray-400 relative z-10">
+                        We constantly evolve our methods and content to keep pace with industry changes and 
+                        emerging technologies.
+                    </p>
+                </div>
+                
+                <!-- Value 6 -->
+                <div class="glass-panel p-6 rounded-xl glow-hover scroll-animate-scale value-card" style="animation-delay: 0.5s;">
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center text-2xl">
+                            💪
+                        </div>
+                        <h4 class="text-xl font-bold">Empowerment</h4>
+                    </div>
+                    <p class="text-gray-400 relative z-10">
+                        We empower students to take control of their learning journey and build the skills 
+                        needed for a successful career.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--========================================
+         IMPACT STATISTICS
+    ======================================== -->
+    <section id="impact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-strong p-8 md:p-12 rounded-2xl scroll-animate-scale">
+                <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    Our <span class="fire-text-gradient">Impact</span>
+                </h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient mb-2 counter" data-target="5000">0</div>
+                        <p class="text-gray-400">Students Empowered</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient mb-2 counter" data-target="1200">0</div>
+                        <p class="text-gray-400">Students Placed</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient mb-2 counter" data-target="95">0</div>
+                        <p class="text-gray-400">% Satisfaction Rate</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold fire-text-gradient mb-2 counter" data-target="50">0</div>
+                        <p class="text-gray-400">+ Countries Reached</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 grid md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded-xl text-center glow-hover">
+                        <div class="text-5xl mb-4">🏢</div>
+                        <h4 class="font-semibold mb-2">Top Company Placements</h4>
+                        <p class="text-sm text-gray-400">Google • Microsoft • Amazon • Flipkart • more</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl text-center glow-hover">
+                        <div class="text-5xl mb-4">💰</div>
+                        <h4 class="font-semibold mb-2">Average Salary Hike</h4>
+                        <p class="text-sm text-gray-400">150% increase for placed students</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl text-center glow-hover">
+                        <div class="text-5xl mb-4">🎓</div>
+                        <h4 class="font-semibold mb-2">Certificates Awarded</h4>
+                        <p class="text-sm text-gray-400">3,500+ free industry certificates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         CALL TO ACTION
+    ======================================== -->
+    <section id="cta" class="py-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-strong p-8 md:p-12 rounded-2xl text-center scroll-animate-scale">
+                <div class="w-20 h-20 fire-gradient rounded-full flex items-center justify-center text-4xl mx-auto mb-6 animate-pulse-glow">
+                    🔥
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">
+                    Ready to Join <span class="fire-text-gradient">The Angaar Batch</span>?
+                </h3>
+                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Start your coding journey today with our completely free live classes and personalized mentorship.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#courses" class="btn-fire text-lg px-8 py-4">
+                        Explore Courses 🚀
+                    </a>
+                    <a href="login.html" class="btn-outline-fire text-lg px-8 py-4">
+                        Sign Up Free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="relative py-20 border-t border-orange-500/20">
+        <div class="absolute inset-0 bg-gradient-to-t from-orange-900/10 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-40 h-40 fire-gradient rounded-lg flex items-center justify-center">
+                            <img 
+                                src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" 
+                                alt="The Angaar Batch"
+                                class="w-full h-full object-contain"
+                            > 
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">The Angaar Batch</h3>
+                            <p class="text-sm text-gray-400">We Believe in Trust</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Empowering students with world-class coding education since 2018. Join thousands of learners in their journey to become professional developers.
+                    </p>
+                    
+                    <!-- Social Links -->
+                    <div class="flex gap-4">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/the-angaar-batch/posts/?feedView=all" target="_blank"
+                        class="w-10 h-10 glass-panel rounded-full flex items-center justify-center hover:bg-blue-600 transition hover:shadow-lg hover:shadow-orange-500/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor" 
+                            class="w-5 h-5">
+                            <path d="M20.447 20.452H16.89v-5.605c0-1.337-.026-3.058-1.865-3.058-1.865 0-2.151 1.456-2.151 2.961v5.702H9.317V9h3.415v1.561h.049c.476-.9 1.637-1.865 3.368-1.865 3.602 0 4.267 2.371 4.267 5.455v6.301zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.56V9h3.559v11.452z"/>
+                        </svg>
+                        </a>
+
+                        <!-- Youtube -->
+                        <a href="https://www.youtube.com/@theangaarbatchbynamansharm2622" target="_blank"
+                            class="w-10 h-10 glass-panel rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                viewBox="0 0 24 24" 
+                                fill="currentColor" 
+                                class="w-5 h-5">
+                                <path d="M23.498 6.186a2.997 2.997 0 00-2.11-2.12C19.558 3.5 12 3.5 12 3.5s-7.558 0-9.388.566a2.997 2.997 0 00-2.11 2.12C0 8.02 0 12 0 12s0 3.98.502 5.814a2.997 2.997 0 002.11 2.12C4.442 20.5 12 20.5 12 20.5s7.558 0 9.388-.566a2.997 2.997 0 002.11-2.12C24 15.98 24 12 24 12s0-3.98-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/the_angaar_batch/" target="_blank"
+                        class="w-10 h-10 glass-panel rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor" 
+                            class="w-5 h-5">
+                            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm6.25-.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 9a3 3 0 100 6 3 3 0 000-6z"/>
+                        </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-orange-500 transition">About</a></li>
+                        <li><a href="index.html#courses" class="text-gray-400 hover:text-orange-500 transition">Courses</a></li>
+                        <li><a href="index.html#projects" class="text-gray-400 hover:text-orange-500 transition">Projects</a></li>
+                        <li><a href="index.html#reviews" class="text-gray-400 hover:text-orange-500 transition">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <span>📧</span>
+                            <span>team@theangaarbatch.in</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span>📱</span>
+                            <span>+91 8273619318</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span>📍</span>
+                            <span>Mathura, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="h-px fire-gradient mb-8"></div>
+            
+            <!-- Copyright -->
+            <div class="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+                <p>&copy; 2024 The Angaar Batch. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-orange-500 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-500 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-orange-500 transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ========================================
+         BACK TO TOP BUTTON
+    ======================================== -->
+    <button id="backToTop" class="fixed bottom-20 right-6 w-12 h-12 fire-gradient rounded-full items-center justify-center text-xl shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40 hidden" aria-label="Back to top">
+        ⬆️
+    </button>
+    
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        /* ========================================
+           NETWORK ANIMATION
+        ======================================== */
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const nodes = [];
+        const nodeCount = 80;
+        const maxDistance = 150;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 69, 0, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+        
+        function initNodes() {
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push(new Node());
+            }
+        }
+        
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        const opacity = (1 - distance / maxDistance) * 0.3;
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(255, 69, 0, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+        
+        initNodes();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Mouse interaction with network
+        let mouse = { x: null, y: null };
+        
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+            
+            nodes.forEach(node => {
+                const dx = mouse.x - node.x;
+                const dy = mouse.y - node.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    node.x -= dx * 0.01;
+                    node.y -= dy * 0.01;
+                }
+            });
+        });
+        
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        const nav = document.getElementById('mainNav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        // Sticky navigation with scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-black/95', 'shadow-2xl');
+            } else {
+                nav.classList.remove('bg-black/95', 'shadow-2xl');
+            }
+        });
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        /* ========================================
+           COUNTER ANIMATION
+        ======================================== */
+        const counters = document.querySelectorAll('.counter');
+        let counterAnimated = false;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        /* ========================================
+           SCROLL ANIMATIONS
+        ======================================== */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate counters on first view
+                    if (!counterAnimated && entry.target.querySelector('.counter')) {
+                        animateCounters();
+                        counterAnimated = true;
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(el => observer.observe(el));
+        
+        /* ========================================
+           BACK TO TOP BUTTON
+        ======================================== */
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none', 'hidden');
+                backToTop.classList.add('flex');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('flex');
+                setTimeout(() => {
+                    if (window.scrollY <= 500) {
+                        backToTop.classList.add('hidden');
+                    }
+                }, 300);
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

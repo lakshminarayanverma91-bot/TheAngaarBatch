@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Angaar Batch - 6+ years of coding education excellence. Free live Zoom classes in Python, C programming, and more. We believe in Trust.">
+    <meta name="keywords" content="coding education, Python programming, C programming, free coding classes, online learning, mentorship">
+    <meta name="author" content="The Angaar Batch">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="The Angaar Batch - We Believe in Trust">
+    <meta property="og:description" content="6+ years of coding education excellence. Free live Zoom classes in Python, C programming, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/og-image.jpg">
+    
+    <title>The Angaar Batch - We Believe in Trust | Premium Coding Education</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           PREMIUM DESIGN SYSTEM
+        ======================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Fire Gradient Palette - Enhanced */
+            --fire-primary: #FF4500;
+            --fire-secondary: #FF6B35;
+            --fire-accent: #FFA500;
+            --lava-red: #DC143C;
+            --ember-orange: #FF8C00;
+            --neon-orange: #FF5722;
+            --gold: #FFD700;
+            --bronze: #CD7F32;
+            
+            /* Dark Theme - Deeper */
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --bg-panel: rgba(20, 20, 20, 0.8);
+            
+            /* Glow Effects - More Intense */
+            --glow-orange: 0 0 30px rgba(255, 69, 0, 0.6);
+            --glow-red: 0 0 40px rgba(255, 0, 0, 0.5);
+            --glow-strong: 0 0 60px rgba(255, 87, 34, 0.9);
+            --glow-gold: 0 0 50px rgba(255, 215, 0, 0.7);
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Enhanced Fire Gradients */
+        .fire-gradient {
+            background: linear-gradient(135deg, #FF4500 0%, #FF6B35 25%, #FFA500 50%, #FFD700 75%, #FF8C00 100%);
+        }
+        
+        .lava-gradient {
+            background: linear-gradient(180deg, #DC143C 0%, #FF4500 30%, #FF8C00 60%, #FFD700 100%);
+        }
+        
+        .volcano-gradient {
+            background: radial-gradient(ellipse at 50% 50%, #FF4500, #DC143C, #8B0000);
+        }
+        
+        .fire-text-gradient {
+            background: linear-gradient(135deg, #FF4500, #FFD700, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        /* Premium Glassmorphism */
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-strong {
+            background: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 69, 0, 0.4);
+        }
+        
+        /* Enhanced Glow Effects */
+        .glow-orange {
+            box-shadow: var(--glow-orange);
+        }
+        
+        .glow-strong {
+            box-shadow: var(--glow-strong);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 40px rgba(255, 69, 0, 0.8), 0 0 80px rgba(255, 165, 0, 0.4);
+            transform: translateY(-4px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Premium Button System */
+        .btn-fire {
+            background: linear-gradient(135deg, #FF4500, #FF6B35, #FFD700);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-fire::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-fire:hover::before {
+            left: 100%;
+        }
+        
+        .btn-fire:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(255, 69, 0, 0.7), 0 0 50px rgba(255, 165, 0, 0.5);
+        }
+        
+        .btn-outline-fire {
+            border: 2px solid #FF4500;
+            padding: 12px 32px;
+            border-radius: 50px;
+            background: transparent;
+            color: #FF4500;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-outline-fire::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF4500, #FFD700);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+        
+        .btn-outline-fire:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-outline-fire:hover {
+            color: white;
+            border-color: #FFD700;
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.6);
+        }
+        
+        .btn-outline-fire span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Particle Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+        
+        /* Premium Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(2deg); }
+            66% { transform: translateY(-10px) rotate(-2deg); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 69, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(255, 69, 0, 0.8), 0 0 100px rgba(255, 165, 0, 0.4);
+            }
+        }
+        
+        @keyframes flame-flicker {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            25% { opacity: 0.8; transform: scale(1.05); }
+            50% { opacity: 0.9; transform: scale(0.95); }
+            75% { opacity: 0.85; transform: scale(1.02); }
+        }
+        
+        @keyframes slide-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fade-in-scale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        .animate-flame {
+            animation: flame-flicker 2s ease-in-out infinite;
+        }
+        
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Code Editor Styles */
+        .code-editor {
+            background: #1e1e1e;
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            border: 2px solid rgba(255, 69, 0, 0.3);
+        }
+        
+        /* Navigation Active State */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF4500, #FFD700);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #FF4500, #FFD700);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #FF6B35, #FFD700);
+        }
+        
+        /* Chatbot Widget */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            animation: floatChat 3s ease-in-out infinite;
+        }
+
+        @keyframes floatChat {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .chat-window {
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        
+        .chat-window.active {
+            transform: scale(1);
+        }
+        
+        /* Focus Visible for Accessibility */
+        *:focus-visible {
+            outline: 2px solid #FFD700;
+            outline-offset: 2px;
+        }
+        
+        /* Hero Background Animation */
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 69, 0, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 165, 0, 0.15), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.1), transparent 70%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Premium Course Card */
+        .course-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+        
+        .course-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Testimonial Card Hover */
+        .testimonial-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 69, 0, 0.4);
+        }
+        
+        /* Project Card Animation */
+        .project-card {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .project-image-placeholder {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(255, 165, 0, 0.1));
+            border: 2px dashed rgba(255, 69, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .project-image-placeholder:hover {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 165, 0, 0.2));
+            border-color: rgba(255, 69, 0, 0.6);
+        }
+        
+        /* Collaboration Logo Animation */
+        .collab-logo {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .collab-logo:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: brightness(1.3);
+        }
+        
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.75rem; }
+        }
+        
+        /* Hub Tab Active State */
+        .hub-tab {
+            transition: all 0.3s ease;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .hub-tab.active {
+            background: linear-gradient(135deg, #FF4500, #FFD700);
+            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- ========================================
+         NAVIGATION BAR
+    ======================================== -->
+    <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 glass-panel transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center animate-pulse-glow">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" alt="The Angaar Batch">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">The Angaar Batch</h1>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-sm font-medium hover:text-orange-500 active">Home</a>
+                    <a href="about.html" class="nav-link text-sm font-medium hover:text-orange-500">About</a>
+                    <a href="our-team.html" class="nav-link text-sm font-medium hover:text-orange-500">Our Team</a>
+                    <a href="mock-interview.html" class="nav-link text-sm font-medium hover:text-orange-500">Interview</a>
+                    <a href="dashboard.html" class="btn-outline-fire text-center mt-100"><span>Dashboard</span></a>
+                    <a href="login.html" class="btn-fire text-sm">Login</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-gray-800" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden fixed top-0 right-0 h-full w-64 glass-strong z-50">
+            <div class="p-6">
+                <button id="closeMobileMenu" class="mb-8 text-gray-400 hover:text-white" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-lg hover:text-orange-500 mobile-nav-link">Home</a>
+                    <a href="about.html" class="text-lg hover:text-orange-500 mobile-nav-link">About</a>
+                    <a href="our-team.html" class="text-lg hover:text-orange-500 mobile-nav-link">Our Team</a>
+                    <a href="dashboard.html" class="btn-outline-fire text-center mt-100">Dashboard</a>
+                    <a href="login.html" class="btn-fire text-center mt-4">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- ========================================
+         PREMIUM HERO SECTION
+    ======================================== -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Fiery Background Image Effect -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1525429117598-209971ea736b?w=1920')] bg-cover bg-center opacity-20 mix-blend-screen"></div>
+            <div class="hero-background"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 via-orange-900/30 to-yellow-900/30"></div>
+            <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-orange-600/40 rounded-full blur-3xl animate-pulse-glow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-red-600/40 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-yellow-600/30 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+            <div class="text-center">
+                <!-- Premium Badge -->
+                <div class="inline-block mb-8 px-6 py-3 glass-panel rounded-full scroll-animate">
+                    <span class="fire-text-gradient text-lg font-semibold tracking-wide">🔥 6+ Years of Excellence 🔥</span>
+                </div>
+                
+                <!-- Hero Title -->
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-8 leading-tight scroll-animate" style="animation-delay: 0.2s;">
+                    Ignite Your
+                    <br>
+                    <span class="fire-text-gradient">Coding Journey</span>
+                </h1>
+                
+                <!-- Tagline -->
+                <p class="text-3xl md:text-4xl text-gray-300 mb-6 scroll-animate" style="font-family: 'Playfair Display', serif; animation-delay: 0.4s;">
+                    We Believe in <span class="fire-text-gradient font-bold">Trust</span>
+                </p>
+                
+                <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto scroll-animate leading-relaxed" style="animation-delay: 0.6s;">
+                    Join thousands of students in <span class="text-orange-500 font-semibold">FREE</span> live Zoom classes. Master Python, C Programming, and become industry-ready with personalized mentorship.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16 scroll-animate" style="animation-delay: 0.8s;">
+                    <button class="btn-fire text-xl px-12 py-4" onclick="scrollToSection('courses')">
+                        Start Learning Free 🚀
+                    </button>
+                    <button class="btn-outline-fire text-xl px-12 py-4" onclick="scrollToSection('about')">
+                        <span>Watch Demo</span>
+                    </button>
+                </div>
+                
+                <!-- Premium Stats Counter -->
+                <div class="grid grid-cols-3 gap-8 max-w-4xl mx-auto scroll-animate" style="animation-delay: 1s;">
+                    <div class="glass-panel p-8 rounded-2xl text-center glow-hover relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-600/10 to-transparent"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl md:text-6xl font-bold fire-text-gradient counter mb-2" data-target="5000">0</div>
+                            <div class="text-sm md:text-base text-gray-400 uppercase tracking-wider" style="font-family: 'Cinzel', serif;">Students</div>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl text-center glow-hover relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl md:text-6xl font-bold fire-text-gradient counter mb-2" data-target="150">0</div>
+                            <div class="text-sm md:text-base text-gray-400 uppercase tracking-wider" style="font-family: 'Cinzel', serif;">Live Classes</div>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl text-center glow-hover relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-transparent"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl md:text-6xl font-bold fire-text-gradient counter mb-2" data-target="100">0</div>
+                            <div class="text-sm md:text-base text-gray-400 uppercase tracking-wider" style="font-family: 'Cinzel', serif;">% Free</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- ========================================
+         PREMIUM COURSES SECTION
+    ======================================== -->
+    <section id="courses" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Our <span class="fire-text-gradient">Elite Courses</span>
+                </h2>
+                <p class="text-2xl text-gray-400 max-w-3xl mx-auto" style="font-family: 'Playfair Display', serif;">
+                    Complete Programming from Ultimate Basics to Advanced Mastery
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Python Course - Enhanced -->
+                <div class="course-card glass-panel rounded-3xl overflow-hidden glow-hover scroll-animate relative">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/20 to-transparent rounded-bl-full"></div>
+                    <div class="p-10">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="text-8xl animate-float">🐍</div>
+                            <span class="px-6 py-3 bg-green-500/20 text-green-400 rounded-full text-sm font-bold border-2 border-green-500/40 uppercase tracking-wider" style="font-family: 'Cinzel', serif;">
+                                Ultimate Beginners
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-4xl font-bold mb-4">Python Programming</h3>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">Complete Python mastery from ultimate basics to advanced level with real-world projects and industry insights</p>
+                        
+                        <!-- Course Highlights -->
+                        <div class="grid grid-cols-3 gap-6 mb-8">
+                            <div class="text-center p-4 glass-strong rounded-xl">
+                                <div class="text-3xl font-bold fire-text-gradient mb-1">12</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Weeks</div>
+                            </div>
+                            <div class="text-center p-4 glass-strong rounded-xl">
+                                <div class="text-3xl font-bold fire-text-gradient mb-1">50+</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Projects</div>
+                            </div>
+                            <div class="text-center p-4 glass-strong rounded-xl">
+                                <div class="text-3xl font-bold fire-text-gradient mb-1">FREE</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Cost</div>
+                            </div>
+                        </div>
+
+                        <!-- Instructor Info -->
+                        <div class="mb-8 p-6 glass-strong rounded-2xl border border-orange-500/20">
+                            <p class="text-sm text-gray-400 mb-2 uppercase tracking-wider">Expert Instructor</p>
+                            <p class="text-2xl font-bold text-orange-500 mb-4">DK - Co-founder</p>
+                            <div class="flex items-baseline gap-4">
+                                <p class="text-3xl font-bold line-through text-gray-600">₹2,999</p>
+                                <p class="text-5xl font-bold fire-text-gradient">FREE</p>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full btn-fire text-lg py-4 relative z-10" onclick="openModal('registerModal')">
+                            Enroll Now - FREE 🔥
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- C Programming Course - Enhanced -->
+                <div class="course-card glass-panel rounded-3xl overflow-hidden glow-hover scroll-animate relative" style="animation-delay: 0.2s;">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full"></div>
+                    <div class="p-10">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="text-8xl animate-float" style="animation-delay: 0.5s;">⚙️</div>
+                            <span class="px-6 py-3 bg-blue-500/20 text-blue-400 rounded-full text-sm font-bold border-2 border-blue-500/40 uppercase tracking-wider" style="font-family: 'Cinzel', serif;">
+                                Ultimate Beginners
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-4xl font-bold mb-4">C Programming</h3>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">Master C from ultimate basics to advanced level with rock-solid foundation and system-level understanding</p>
+                        
+                        <!-- Course Highlights -->
+                        <div class="grid grid-cols-3 gap-6 mb-8">
+                            <div class="text-center p-4 glass-strong rounded-xl">
+                                <div class="text-3xl font-bold fire-text-gradient mb-1">10</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Weeks</div>
+                            </div>
+                            <div class="text-center p-4 glass-strong rounded-xl">
+                                <div class="text-3xl font-bold fire-text-gradient mb-1">40+</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Projects</div>
+                            </div>
+                            <div class="text-center p-4 glass-strong rounded-xl">
+                                <div class="text-3xl font-bold fire-text-gradient mb-1">FREE</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Cost</div>
+                            </div>
+                        </div>
+
+                        <!-- Instructor Info -->
+                        <div class="mb-8 p-6 glass-strong rounded-2xl border border-orange-500/20">
+                            <p class="text-sm text-gray-400 mb-2 uppercase tracking-wider">Expert Instructor</p>
+                            <p class="text-2xl font-bold text-orange-500 mb-4">Naman - Founder</p>
+                            <div class="flex items-baseline gap-4">
+                                <p class="text-3xl font-bold line-through text-gray-600">₹2,999</p>
+                                <p class="text-5xl font-bold fire-text-gradient">FREE</p>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full btn-fire text-lg py-4 relative z-10" onclick="openModal('registerModal')">
+                            Enroll Now - FREE 🔥
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-900/10 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Comprehensive Learning <span class="fire-text-gradient">Platform</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-panel rounded-2xl p-8 cursor-pointer glow-hover scroll-animate">
+                    <div class="text-6xl mb-6 animate-float">🧮</div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-3">DSA Mastery</h3>
+                    <p class="text-gray-400 text-lg">Master Data Structures and Algorithms</p>
+                </div>
+                <div class="glass-panel rounded-2xl p-8 cursor-pointer glow-hover scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="text-6xl mb-6 animate-float" style="animation-delay: 0.5s;">🌐</div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-3">Web Development</h3>
+                    <p class="text-gray-400 text-lg">Build modern, responsive websites</p>
+                </div>
+                <div class="glass-panel rounded-2xl p-8 cursor-pointer glow-hover scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="text-6xl mb-6 animate-float" style="animation-delay: 1s;">📝</div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-3">Practice Sheets</h3>
+                    <p class="text-gray-400 text-lg">Curated problems for every level</p>
+                </div>
+                <div class="glass-panel rounded-2xl p-8 cursor-pointer glow-hover scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="text-6xl mb-6 animate-flame">🔥</div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-3">Coding Streak</h3>
+                    <p class="text-gray-400 text-lg">Build consistency with daily challenges</p>
+                </div>
+                <div class="glass-panel rounded-2xl p-8 cursor-pointer glow-hover scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="text-6xl mb-6 animate-float" style="animation-delay: 1.5s;">🤖</div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-3">AI Doubt Solver</h3>
+                    <p class="text-gray-400 text-lg">24/7 AI assistant for doubts</p>
+                </div>
+                <div class="glass-panel rounded-2xl p-8 cursor-pointer glow-hover scroll-animate" style="animation-delay: 0.5s;">
+                    <a href="mock-interview.html">
+                        <div class="text-6xl mb-6 animate-float" style="animation-delay: 2s;">🎤</div>
+                        <h3 class="text-2xl font-bold text-orange-500 mb-3">Mock Interviews</h3>
+                        <p class="text-gray-400 text-lg">Practice with industry experts</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         LEARNING HUB SECTION
+    ======================================== -->
+    <section id="learning-hub" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Learning <span class="fire-text-gradient">Hub</span>
+                </h2>
+                <p class="text-2xl text-gray-400 max-w-3xl mx-auto" style="font-family: 'Playfair Display', serif;">
+                    All your learning resources in one place
+                </p>
+            </div>
+            
+            <!-- Hub Navigation Tabs -->
+            <div class="flex flex-wrap justify-center gap-6 mb-16 scroll-animate">
+                <button class="hub-tab px-8 py-4 glass-panel rounded-full font-semibold text-lg active" data-tab="notes">
+                    📚 Notes
+                </button>
+                <button class="hub-tab px-8 py-4 glass-panel rounded-full font-semibold text-lg" data-tab="tutorials">
+                    🎥 Tutorials
+                </button>
+                <button class="hub-tab px-8 py-4 glass-panel rounded-full font-semibold text-lg" data-tab="roadmap">
+                    🗺 Roadmap
+                </button>
+            </div>
+            
+            <!-- Hub Content -->
+            <div class="hub-content">
+                <!-- Notes Tab -->
+                <div id="notes" class="tab-content active">
+                    <div class="mb-10">
+                        <div class="glass-panel p-6 rounded-2xl flex flex-wrap gap-4 items-center">
+                            <input type="text" placeholder="Search notes..." class="flex-1 min-w-[200px] bg-gray-800 px-6 py-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-500 text-lg">
+                            <select class="bg-gray-800 px-6 py-3 rounded-xl outline-none text-lg">
+                                <option>All Categories</option>
+                                <option>Python</option>
+                                <option>C Programming</option>
+                                <option>DSA</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="glass-panel p-8 rounded-2xl glow-hover scroll-animate">
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="text-5xl">🐍</span>
+                                <span class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-xs font-bold uppercase">Python</span>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-3">Python Basics Cheatsheet</h4>
+                            <p class="text-gray-400 mb-6">Complete guide to Python syntax and data types</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">12 pages</span>
+                                <button class="btn-fire text-sm px-6 py-2">Download PDF</button>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-panel p-8 rounded-2xl glow-hover scroll-animate" style="animation-delay: 0.1s;">
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="text-5xl">⚙️</span>
+                                <span class="px-4 py-2 bg-gray-500/20 text-gray-400 rounded-full text-xs font-bold uppercase">C</span>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-3">Pointers Mastery Guide</h4>
+                            <p class="text-gray-400 mb-6">Master the most important C concept</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">8 pages</span>
+                                <button class="btn-fire text-sm px-6 py-2">Download PDF</button>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-panel p-8 rounded-2xl glow-hover scroll-animate" style="animation-delay: 0.2s;">
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="text-5xl">🧠</span>
+                                <span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-xs font-bold uppercase">DSA</span>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-3">Algorithm Patterns</h4>
+                            <p class="text-gray-400 mb-6">Common patterns for coding interviews</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">20 pages</span>
+                                <button class="btn-fire text-sm px-6 py-2">Download PDF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutorials Tab -->
+                <div id="tutorials" class="tab-content hidden">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Python Tutorials -->
+                        <a href="https://youtube.com/playlist?list=PLtlkmeoc1tYHcGSWqIrzhPKea_M4gRr2P&si=Qkb11MBJFBrgcFNr" target="_blank">
+                            <div class="glass-panel rounded-2xl overflow-hidden glow-hover scroll-animate">
+                                <div class="aspect-video relative overflow-hidden">
+                                    <img 
+                                        src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771104347/20260215_025054_yjicxk.jpg"
+                                        alt="Python Course"
+                                        class="w-full h-full object-cover"
+                                    >
+                                </div>
+                                <div class="p-8">
+                                    <h4 class="text-2xl font-bold mb-3">Python Full Course</h4>
+                                    <p class="text-gray-400 mb-6">Complete beginner to advanced Python tutorial</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-500">12 Lessons</span>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-32 h-3 bg-gray-800 rounded-full overflow-hidden">
+                                                <div class="h-full fire-gradient" style="width: 35%"></div>
+                                            </div>
+                                            <span class="text-sm font-bold">35%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- C Tutorials -->
+                        <a href="https://youtube.com/playlist?list=PLtlkmeoc1tYHFCOvN7ECrpOY3-k6pIEN_&si=WY7h94JewqvObKCB" target="_blank">
+                            <div class="glass-panel rounded-2xl overflow-hidden glow-hover scroll-animate" style="animation-delay: 0.2s;">
+                                <div class="aspect-video relative overflow-hidden">
+                                    <img 
+                                        src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771104307/20260215_025205_hb4cae.jpg"
+                                        alt="Python Course"
+                                        class="w-full h-full object-cover"
+                                    >
+                                </div>
+                                <div class="p-8">
+                                    <h4 class="text-2xl font-bold mb-3">C Programming Fundamentals</h4>
+                                    <p class="text-gray-400 mb-6">Master C from scratch to advanced</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-500">38 Lessons</span>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-32 h-3 bg-gray-800 rounded-full overflow-hidden">
+                                                <div class="h-full fire-gradient" style="width: 0%"></div>
+                                            </div>
+                                            <span class="text-sm font-bold">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Roadmap Tab -->
+                <div id="roadmap" class="tab-content hidden">
+                    <div class="glass-strong p-10 rounded-3xl scroll-animate">
+                        <h3 class="text-3xl font-bold mb-12 text-center">Python Developer Roadmap</h3>
+                        <div class="max-w-3xl mx-auto">
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center glow-strong shrink-0 text-2xl">✓</div>
+                                    <div class="flex-1 glass-panel p-6 rounded-2xl">
+                                        <h4 class="text-xl font-bold mb-2">Fundamentals</h4>
+                                        <p class="text-gray-400 mb-3">Variables, Data Types, Control Flow</p>
+                                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                            <div class="h-full fire-gradient w-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center gap-6">
+                                    <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center glow-strong shrink-0 text-2xl">✓</div>
+                                    <div class="flex-1 glass-panel p-6 rounded-2xl">
+                                        <h4 class="text-xl font-bold mb-2">Data Structures</h4>
+                                        <p class="text-gray-400 mb-3">Lists, Dictionaries, Sets, Tuples</p>
+                                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                            <div class="h-full fire-gradient w-3/4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center gap-6">
+                                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center shrink-0 text-2xl">⏳</div>
+                                    <div class="flex-1 glass-panel p-6 rounded-2xl">
+                                        <h4 class="text-xl font-bold mb-2">OOP Concepts</h4>
+                                        <p class="text-gray-400 mb-3">Classes, Objects, Inheritance</p>
+                                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                            <div class="h-full fire-gradient w-1/4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center gap-6">
+                                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center shrink-0 text-2xl">🔒</div>
+                                    <div class="flex-1 glass-panel p-6 rounded-2xl opacity-60">
+                                        <h4 class="text-xl font-bold mb-2">Advanced Topics</h4>
+                                        <p class="text-gray-400 mb-3">Decorators, Generators, Context Managers</p>
+                                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                            <div class="h-full fire-gradient w-0"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         PREMIUM UNIVERSITY COLLABORATIONS
+    ======================================== -->
+    <section id="collaborations" class="py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-900/5 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Our <span class="fire-text-gradient">Collaborations</span>
+                </h2>
+                <p class="text-2xl text-gray-400" style="font-family: 'Playfair Display', serif;">Partnered with leading institutions worldwide</p>
+            </div>
+            
+            <!-- Enhanced University Showcase -->
+            <div class="glass-panel py-16 rounded-3xl overflow-hidden relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent"></div>
+                <div class="grid md:grid-cols-3 gap-12 px-12 relative z-10">
+                    <div class="text-center scroll-animate collab-logo">
+                        <div class="w-32 h-32 mx-auto mb-6 fire-gradient rounded-full flex items-center justify-center text-6xl glow-strong">
+                            🏛️
+                        </div>
+                        <h3 class="text-3xl font-bold fire-text-gradient mb-3">DU</h3>
+                        <p class="text-gray-400 text-lg">Guest Lectures & Workshops</p>
+                        <div class="mt-4 h-1 w-24 mx-auto fire-gradient rounded-full"></div>
+                    </div>
+                    
+                    <div class="text-center scroll-animate collab-logo" style="animation-delay: 0.2s;">
+                        <div class="w-32 h-32 mx-auto mb-6 fire-gradient rounded-full flex items-center justify-center text-6xl glow-strong">
+                            🏛️
+                        </div>
+                        <h3 class="text-3xl font-bold fire-text-gradient mb-3">IIT Delhi</h3>
+                        <p class="text-gray-400 text-lg">Research Partnership</p>
+                        <div class="mt-4 h-1 w-24 mx-auto fire-gradient rounded-full"></div>
+                    </div>
+                    
+                    <div class="text-center scroll-animate collab-logo" style="animation-delay: 0.4s;">
+                        <div class="w-32 h-32 mx-auto mb-6 fire-gradient rounded-full flex items-center justify-center text-6xl glow-strong">
+                            🏛️
+                        </div>
+                        <h3 class="text-3xl font-bold fire-text-gradient mb-3">GNIOT</h3>
+                        <p class="text-gray-400 text-lg">Course Content Collaboration</p>
+                        <div class="mt-4 h-1 w-24 mx-auto fire-gradient rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         PREMIUM STUDENT VOICES / TESTIMONIALS
+    ======================================== -->
+    <section id="reviews" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-red-900/10 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Student <span class="fire-text-gradient">Voices</span>
+                </h2>
+                <p class="text-2xl text-gray-400" style="font-family: 'Playfair Display', serif;">Hear from our successful students</p>
+            </div>
+            
+            <!-- Premium Testimonial Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-panel p-8 rounded-3xl scroll-animate relative">
+                    <div class="absolute top-0 right-0 text-8xl text-orange-500/10 leading-none">"</div>
+                    <div class="flex items-center gap-4 mb-6 relative z-10">
+                        <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-orange">
+                            👨‍🎓
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Rahul Kumar</h4>
+                            <div class="flex text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed relative z-10">
+                        "The Angaar Batch completely transformed my coding journey. The free classes and personalized mentorship helped me land my first developer job!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-panel p-8 rounded-3xl scroll-animate relative" style="animation-delay: 0.1s;">
+                    <div class="absolute top-0 right-0 text-8xl text-orange-500/10 leading-none">"</div>
+                    <div class="flex items-center gap-4 mb-6 relative z-10">
+                        <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-orange">
+                            👩‍🎓
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Priya Sharma</h4>
+                            <div class="flex text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed relative z-10">
+                        "Best coding education platform! The instructors are patient and the curriculum is perfectly structured. Highly recommend to everyone!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-panel p-8 rounded-3xl scroll-animate relative" style="animation-delay: 0.2s;">
+                    <div class="absolute top-0 right-0 text-8xl text-orange-500/10 leading-none">"</div>
+                    <div class="flex items-center gap-4 mb-6 relative z-10">
+                        <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-orange">
+                            👨‍💻
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Amit Patel</h4>
+                            <div class="flex text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed relative z-10">
+                        "From zero coding knowledge to building real projects in 3 months. The trust-based approach really works. Thank you Angaar Batch!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card glass-panel p-8 rounded-3xl scroll-animate relative" style="animation-delay: 0.3s;">
+                    <div class="absolute top-0 right-0 text-8xl text-orange-500/10 leading-none">"</div>
+                    <div class="flex items-center gap-4 mb-6 relative z-10">
+                        <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-orange">
+                            👩‍💻
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Sneha Reddy</h4>
+                            <div class="flex text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed relative z-10">
+                        "The one-on-one mentorship sessions are incredible. My mentor helped me overcome every challenge and build confidence in coding."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card glass-panel p-8 rounded-3xl scroll-animate relative" style="animation-delay: 0.4s;">
+                    <div class="absolute top-0 right-0 text-8xl text-orange-500/10 leading-none">"</div>
+                    <div class="flex items-center gap-4 mb-6 relative z-10">
+                        <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-orange">
+                            👨‍🎓
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Vikram Singh</h4>
+                            <div class="flex text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed relative z-10">
+                        "Amazing learning experience! The live Zoom classes are interactive and the practice problems helped me master DSA concepts."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card glass-panel p-8 rounded-3xl scroll-animate relative" style="animation-delay: 0.5s;">
+                    <div class="absolute top-0 right-0 text-8xl text-orange-500/10 leading-none">"</div>
+                    <div class="flex items-center gap-4 mb-6 relative z-10">
+                        <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-orange">
+                            👩‍🎓
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Ananya Gupta</h4>
+                            <div class="flex text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed relative z-10">
+                        "The trust-based education model is revolutionary. No hidden fees, just pure quality education. Forever grateful to The Angaar Batch!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         PREMIUM CODE IN ACTION - ENHANCED PLAYGROUND
+    ======================================== -->
+    <section id="playground" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Code <span class="fire-text-gradient">in Action</span>
+                </h2>
+                <p class="text-2xl text-gray-400" style="font-family: 'Playfair Display', serif;">Sharpen your skills every day</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-10">
+                <!-- Question Panel - Enhanced -->
+                <div class="glass-strong p-10 rounded-3xl scroll-animate border-2 border-orange-500/20">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-3xl font-bold">Today's Challenge</h3>
+                        <div class="flex items-center gap-6">
+                            <span class="px-5 py-2 bg-green-500/20 text-green-400 rounded-full text-base font-bold border-2 border-green-500/40">Easy</span>
+                            <div class="flex items-center gap-3 text-lg font-bold fire-text-gradient">
+                                <span class="text-2xl">⏱️</span>
+                                <span id="challengeTimer">15:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-2xl font-semibold mb-6 text-orange-500">Sum of Two Numbers</h4>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        Given an array of integers <code class="bg-gray-800 px-3 py-1 rounded-lg text-orange-400 font-mono">nums</code> and an integer <code class="bg-gray-800 px-3 py-1 rounded-lg text-orange-400 font-mono">target</code>, return indices of the two numbers such that they add up to target.
+                    </p>
+                    
+                    <div class="mb-8">
+                        <h5 class="font-semibold mb-4 text-xl">Example:</h5>
+                        <div class="bg-gray-900 p-6 rounded-2xl font-mono text-base border-2 border-gray-800">
+                            <div class="mb-2"><span class="text-gray-500">Input:</span> <span class="text-blue-400">nums = [2,7,11,15]</span>, <span class="text-purple-400">target = 9</span></div>
+                            <div class="mb-2"><span class="text-gray-500">Output:</span> <span class="text-green-400">[0,1]</span></div>
+                            <div class="text-gray-500 mt-3">Explanation: nums[0] + nums[1] == 9</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <button class="btn-fire flex-1 py-4 text-lg">Submit Solution</button>
+                        <button class="btn-outline-fire px-8 text-lg"><span>💡 Hint</span></button>
+                    </div>
+                </div>
+                
+                <!-- Code Editor Panel - Enhanced -->
+                <div class="glass-strong rounded-3xl overflow-hidden scroll-animate border-2 border-orange-500/20" style="animation-delay: 0.2s;">
+                    <div class="bg-gray-900 px-6 py-4 flex items-center justify-between border-b-2 border-gray-800">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 rounded-full bg-red-500"></div>
+                            <div class="w-4 h-4 rounded-full bg-yellow-500"></div>
+                            <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-base text-gray-400 font-mono">solution.py</span>
+                    </div>
+                    
+                    <textarea class="w-full bg-gray-900 text-white font-mono text-base p-6 outline-none resize-none focus:ring-2 focus:ring-orange-500" rows="18" placeholder="def solution(nums, target):
+    # Write your code here
+    pass" style="line-height: 1.6;"></textarea>
+                    
+                    <div class="bg-black px-6 py-4 border-t-2 border-gray-800">
+                        <div class="text-base text-green-400 font-mono">
+                            <span class="text-gray-500">Console:</span> Ready to run...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PREMIUM STUDENT PROJECTS SHOWCASE
+    ======================================== -->
+    <section id="projects" class="py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-900/5 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 scroll-animate">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6">
+                    Student <span class="fire-text-gradient">Projects</span>
+                </h2>
+                <p class="text-2xl text-gray-400" style="font-family: 'Playfair Display', serif;">Real projects built by our talented students</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Project 1 -->
+                <div class="project-card glass-panel rounded-3xl overflow-hidden group border-2 border-orange-500/10 hover:border-orange-500/40 transition-all">
+                    <div class="project-image-placeholder relative aspect-video bg-gradient-to-br from-blue-900/30 to-purple-900/30 overflow-hidden flex items-center justify-center">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQF_BM5Z4yFQOQ/feedshare-shrink_2048_1536/B56Zwk8zevHQAk-/0/1770146445428?e=1772668800&v=beta&t=4DoIFj1HzA4uv9_8xoXAX1KhJu0rodEg_F09EDVa6PA" class="w-full h-full object-cover">
+
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-20">
+                            <a href="https://myptfoliowebsite.netlify.app/" target="_blank" class="btn-fire text-sm px-6 py-3">Live Demo</a>
+                            <a href="https://github.com/lakshminarayanverma91-bot/portfolio-website" target="_blank" class="btn-outline-fire text-sm px-6 py-3"><span>GitHub</span></a>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3">Portfolio Website</h4>
+                        <p class="text-gray-400 text-lg mb-6 leading-relaxed">A digital story of journey, where curiosity meets code, ideas turn into projects, and passion drives continuous learning.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-bold border border-blue-500/30">HTML</span>
+                            <span class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-bold border border-green-500/30">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card glass-panel rounded-3xl overflow-hidden group border-2 border-orange-500/10 hover:border-orange-500/40 transition-all">
+                    <div class="project-image-placeholder relative aspect-video bg-gradient-to-br from-green-900/30 to-teal-900/30 overflow-hidden flex items-center justify-center">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQG7w3iAVV4n7Q/feedshare-shrink_2048_1536/B56ZwzWbdoJMAk-/0/1770388043824?e=1772668800&v=beta&t=-imzbT7gzOaxWgtDgLYhj89qsrw_-PuPRniv3uSUmMo" class="w-full h-full object-cover">
+
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-20">
+                            <a href="https://opulenceco.netlify.app/" target="_blank" class="btn-fire text-sm px-6 py-3">Live Demo</a>
+                            <a href="https://github.com/lakshminarayanverma91-bot/gift-shop-website" target="_blank" class="btn-outline-fire text-sm px-6 py-3"><span>GitHub</span></a>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3">Opulence & Co.</h4>
+                        <p class="text-gray-400 text-lg mb-6 leading-relaxed">An elegant showcase of curated gifts and creative collections crafted to make every celebration special.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-bold border border-blue-500/30">Python</span>
+                            <span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-bold border border-purple-500/30">Socket.io</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card glass-panel rounded-3xl overflow-hidden group border-2 border-orange-500/10 hover:border-orange-500/40 transition-all">
+                    <div class="project-image-placeholder relative aspect-video bg-gradient-to-br from-red-900/30 to-orange-900/30 overflow-hidden flex items-center justify-center">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQHuZdtIptzAxQ/feedshare-shrink_2048_1536/B56Zw.pVJGHAAk-/0/1770577548040?e=1772668800&v=beta&t=XDGp7I09bO3oXCJWXl0pGpOqAt1ssGxi20sKPEBPOhE" class="w-full h-full object-cover">
+
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-20">
+                            <a href="https://surakshaindia.netlify.app/" target="_blank" class="btn-fire text-sm px-6 py-3">Live Demo</a>
+                            <a href="https://github.com/lakshminarayanverma91-bot/CrimePreventionPortal" target="_blank" class="btn-outline-fire text-sm px-6 py-3"><span>GitHub</span></a>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3">Suraksha India</h4>
+                        <p class="text-gray-400 text-lg mb-6 leading-relaxed">A knowledge hub focused on crime awareness, safety tips, real stories, and resources to build a safer society.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-gray-500/20 text-gray-400 rounded-full text-sm font-bold border border-gray-500/30">C</span>
+                            <span class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-bold border border-green-500/30">File I/O</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-strong p-8 md:p-12 rounded-2xl text-center scroll-animate">
+                <div class="text-6xl mb-6">🔥</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Ready to Ignite Your <span class="fire-text-gradient">Coding Journey?</span>
+                </h2>
+                <p class="text-2xl text-gray-300 mb-4 rajdhani font-bold">
+                    Agar Angaar hai tere houllo me, to bas dekhte mar ja... Seekh___ or laga de.. ANGAAR🔥
+                </p>
+                <p class="text-xl text-gray-400 mb-8">Join 24000+ students learning to code for FREE</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="btn-fire px-10 py-5 rounded-full font-bold text-xl relative z-10" onclick="openModal('registerModal')">
+                        🔥 Start Learning Now
+                    </button>
+                    <button class="btn-outline-fire px-10 py-5 rounded-full font-bold text-xl">
+                        <span>Bring Workshop to College</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ========================================
+         PREMIUM FOOTER
+    ======================================== -->
+    <footer class="relative py-24 border-t-2 border-orange-500/30">
+        <div class="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="w-40 h-40 fire-gradient rounded-2xl flex items-center justify-center animate-pulse-glow">
+                            <img 
+                                src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" 
+                                alt="The Angaar Batch"
+                                class="w-full h-full object-contain"
+                            >
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">The Angaar Batch</h3>
+                            <p class="text-gray-400">We Believe in Trust</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Empowering students with world-class coding education since 2018. Join thousands of learners in their journey to become professional developers.
+                    </p>
+                    
+                    <!-- Newsletter -->
+                    <div>
+                        <h4 class="font-semibold mb-4 text-xl">Subscribe to our Newsletter</h4>
+                        <div class="flex gap-3">
+                            <input type="email" placeholder="Your email" class="flex-1 bg-gray-900 px-6 py-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-500 text-lg">
+                            <button class="btn-fire px-8 py-3">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-6 text-xl">Quick Links</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li><a href="about.html" class="text-gray-400 hover:text-orange-500 transition">About Us</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-orange-500 transition">Courses</a></li>
+                        <li><a href="index.html#learning-hub" class="text-gray-400 hover:text-orange-500 transition">Learning Hub</a></li>
+                        <li><a href="index.html#projects" class="text-gray-400 hover:text-orange-500 transition">Projects</a></li>
+                        <li><a href="index.html#reviews" class="text-gray-400 hover:text-orange-500 transition">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold mb-6 text-xl">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-lg">
+                        <li class="flex items-start gap-3">
+                            <span class="text-xl">📧</span>
+                            <span>team@theangaarbatch.in</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-xl">📱</span>
+                            <span>+91 8273619318</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-xl">📍</span>
+                            <span>Mathura, India</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Links -->
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://www.linkedin.com/company/the-angaar-batch/posts/?feedView=all" target="_blank"
+                        class="w-12 h-12 glass-panel rounded-full flex items-center justify-center hover:bg-blue-600 transition hover:shadow-lg hover:shadow-orange-500/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor" 
+                            class="w-6 h-6">
+                            <path d="M20.447 20.452H16.89v-5.605c0-1.337-.026-3.058-1.865-3.058-1.865 0-2.151 1.456-2.151 2.961v5.702H9.317V9h3.415v1.561h.049c.476-.9 1.637-1.865 3.368-1.865 3.602 0 4.267 2.371 4.267 5.455v6.301zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.56V9h3.559v11.452z"/>
+                        </svg>
+                        </a>
+
+                        <a href="https://www.youtube.com/@theangaarbatchbynamansharm2622" target="_blank"
+                            class="w-12 h-12 glass-panel rounded-full flex items-center justify-center hover:bg-red-600 transition hover:shadow-lg hover:shadow-orange-500/40">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                viewBox="0 0 24 24" 
+                                fill="currentColor" 
+                                class="w-6 h-6">
+                                <path d="M23.498 6.186a2.997 2.997 0 00-2.11-2.12C19.558 3.5 12 3.5 12 3.5s-7.558 0-9.388.566a2.997 2.997 0 00-2.11 2.12C0 8.02 0 12 0 12s0 3.98.502 5.814a2.997 2.997 0 002.11 2.12C4.442 20.5 12 20.5 12 20.5s7.558 0 9.388-.566a2.997 2.997 0 002.11-2.12C24 15.98 24 12 24 12s0-3.98-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.instagram.com/the_angaar_batch/" target="_blank"
+                        class="w-12 h-12 glass-panel rounded-full flex items-center justify-center hover:bg-pink-600 transition hover:shadow-lg hover:shadow-orange-500/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor" 
+                            class="w-6 h-6">
+                            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm6.25-.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 9a3 3 0 100 6 3 3 0 000-6z"/>
+                        </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="h-px fire-gradient mb-10"></div>
+            
+            <!-- Copyright -->
+            <div class="flex flex-col md:flex-row items-center justify-between text-gray-400 text-lg">
+                <p>&copy; 2024 The Angaar Batch. All rights reserved.</p>
+                <div class="flex gap-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-orange-500 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-500 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-orange-500 transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ========================================
+         AI CHATBOT WIDGET
+    ======================================== -->
+    <div class="chatbot-widget">
+        <!-- Chat Button -->
+        <button id="chatbotToggle" class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-3xl glow-strong shadow-2xl hover:scale-110 transition-transform" aria-label="Toggle chatbot">
+            💬
+        </button>
+        
+        <!-- Chat Window -->
+        <div id="chatWindow" class="chat-window glass-strong rounded-2xl mb-4 mr-0 w-80 h-96 flex flex-col overflow-hidden border-2 border-orange-500/30">
+            <!-- Chat Header -->
+            <div class="fire-gradient px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">🤖</div>
+                    <div>
+                        <h4 class="font-semibold">AI Assistant</h4>
+                        <p class="text-xs opacity-80">Online</p>
+                    </div>
+                </div>
+                <button id="closeChatbot" class="hover:bg-white/20 p-1 rounded" aria-label="Close chat">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div class="flex-1 p-4 overflow-y-auto space-y-3" id="chatMessages">
+                <div class="flex items-start gap-2">
+                    <div class="w-8 h-8 fire-gradient rounded-full flex items-center justify-center text-sm shrink-0">🤖</div>
+                    <div class="glass-panel px-3 py-2 rounded-lg max-w-[70%]">
+                        <p class="text-sm">Hi! I'm your AI assistant. How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="border-t border-gray-700 p-4">
+                <div class="flex gap-2">
+                    <input type="text" id="chatInput" placeholder="Type your message..." class="flex-1 bg-gray-900 px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-orange-500 text-sm" onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()" class="btn-fire px-4 py-2 text-sm" aria-label="Send message">
+                        📤
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ========================================
+         BACK TO TOP BUTTON
+    ======================================== -->
+    <button id="backToTop" class="fixed bottom-20 right-6 w-12 h-12 fire-gradient rounded-full items-center justify-center text-xl shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40 hidden" aria-label="Back to top">
+        ⬆️
+    </button>
+    
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        /* ========================================
+           PARTICLE SYSTEM
+        ======================================== */
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 80;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 4 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = `rgba(255, ${Math.floor(Math.random() * 100 + 69)}, 0, ${Math.random() * 0.6 + 0.2})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        
+        initParticles();
+        animateParticles();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        const nav = document.getElementById('mainNav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        // Sticky navigation with scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-black/95', 'shadow-2xl');
+            } else {
+                nav.classList.remove('bg-black/95', 'shadow-2xl');
+            }
+        });
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Active nav link on scroll (Scroll Spy)
+        const sections = document.querySelectorAll('section[id]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll helper
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        /* ========================================
+           COUNTER ANIMATION
+        ======================================== */
+        const counters = document.querySelectorAll('.counter');
+        let counterAnimated = false;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        /* ========================================
+           SCROLL ANIMATIONS
+        ======================================== */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate counters on first view
+                    if (!counterAnimated && entry.target.querySelector('.counter')) {
+                        animateCounters();
+                        counterAnimated = true;
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+        
+        /* ========================================
+           LEARNING HUB TABS
+        ======================================== */
+        const hubTabs = document.querySelectorAll('.hub-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        hubTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+                
+                // Update active tab
+                hubTabs.forEach(t => {
+                    t.classList.remove('active');
+                });
+                tab.classList.add('active');
+                
+                // Show target content
+                tabContents.forEach(content => {
+                    if (content.id === targetTab) {
+                        content.classList.remove('hidden');
+                        content.classList.add('active');
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        /* ========================================
+           CHALLENGE TIMER
+        ======================================== */
+        let challengeTime = 900; // 15 minutes in seconds
+        const challengeTimer = document.getElementById('challengeTimer');
+        if (challengeTimer) {
+            setInterval(() => {
+                if (challengeTime > 0) {
+                    challengeTime--;
+                    const minutes = Math.floor(challengeTime / 60);
+                    const seconds = challengeTime % 60;
+                    challengeTimer.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+        /* ========================================
+           CHATBOT
+        ======================================== */
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+        
+        chatbotToggle.addEventListener('click', () => {
+            chatWindow.classList.toggle('active');
+        });
+        
+        closeChatbot.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+        });
+        
+        function sendChatMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'flex items-start gap-2 justify-end';
+            userMsg.innerHTML = `
+                <div class="fire-gradient px-3 py-2 rounded-lg max-w-[70%]">
+                    <p class="text-sm">${message}</p>
+                </div>
+            `;
+            chatMessages.appendChild(userMsg);
+            chatInput.value = '';
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'flex items-start gap-2';
+                botMsg.innerHTML = `
+                    <div class="w-8 h-8 fire-gradient rounded-full flex items-center justify-center text-sm shrink-0">🤖</div>
+                    <div class="glass-panel px-3 py-2 rounded-lg max-w-[70%]">
+                        <p class="text-sm">Thanks for your message! Our team will get back to you soon. Check out our free courses!</p>
+                    </div>
+                `;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+        
+        function handleChatEnter(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+        
+        /* ========================================
+           BACK TO TOP BUTTON
+        ======================================== */
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none', 'hidden');
+                backToTop.classList.add('flex');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('flex');
+                setTimeout(() => {
+                    if (window.scrollY <= 500) {
+                        backToTop.classList.add('hidden');
+                    }
+                }, 300);
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Courses - The Angaar Batch | All Available Courses">
+    <title>My Courses - The Angaar Batch | We Believe in Trust</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --fire-primary: #FF4500;
+            --fire-secondary: #FF6B35;
+            --fire-accent: #FFA500;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Network Canvas */
+        #networkCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Fire Gradients */
+        .fire-gradient {
+            background: linear-gradient(135deg, #FF4500 0%, #FF6B35 50%, #FFA500 100%);
+        }
+        
+        .fire-text-gradient {
+            background: linear-gradient(135deg, #FF4500, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 69, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-strong {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            z-index: 50;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 69, 0, 0.5);
+            border-radius: 3px;
+        }
+        
+        .sidebar-item {
+            padding: 12px 20px;
+            margin: 4px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+        
+        .sidebar-item:hover {
+            background: rgba(255, 69, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-item.active {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .sidebar-section {
+            padding: 20px 12px 8px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #888;
+            text-transform: uppercase;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+        }
+        
+        /* Course Card */
+        .course-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .course-card:hover::before {
+            left: 100%;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 69, 0, 0.4);
+        }
+        
+        .course-thumbnail {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        /* Buttons */
+        .btn-enroll {
+            background: linear-gradient(135deg, #14B8A6, #0D9488);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
+        }
+        
+        .btn-fire {
+            background: linear-gradient(135deg, #FF4500, #FF6B35);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+        }
+        
+        .btn-fire:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 69, 0, 0.7); }
+        }
+        
+        @keyframes slide-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stats Badge */
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 69, 0, 0.1);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.mobile-active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #FF4500, #FFA500);
+            border-radius: 5px;
+        }
+        
+        /* Toggle Button */
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 60;
+            display: none;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+        
+        /* Filter Tabs */
+        .filter-tab {
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 69, 0, 0.2);
+        }
+        
+        .filter-tab:hover {
+            background: rgba(255, 69, 0, 0.1);
+        }
+        
+        .filter-tab.active {
+            background: linear-gradient(135deg, #FF4500, #FF6B35);
+            border-color: #FFA500;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Network Animation Canvas -->
+    <canvas id="networkCanvas"></canvas>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="sidebar-toggle btn-fire" id="sidebarToggle">
+        ☰
+    </button>
+    
+    <!-- ========================================
+         SIDEBAR
+    ======================================== -->
+    <aside class="sidebar glass-strong">
+        <!-- Logo Section -->
+        <div class="p-6 border-b border-orange-500/20">
+            <div class="flex items-center justify-center gap-4 mb-4">
+                <div class="w-20 h-20 fire-gradient rounded-lg flex items-center justify-center">
+                    <img 
+                        src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" 
+                        alt="The Angaar Batch"
+                        class="w-full h-full object-contain"
+                    > 
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Account Section -->
+        <div class="sidebar-section">Main Account</div>
+        <nav>
+            <a href="dashboard.html">
+                <div class="sidebar-item">
+                    <span class="text-xl">📊</span>
+                    <span>Dashboard</span>
+                    <span class="ml-auto">🔥</span>
+                </div>
+            </a>
+            <a href="my-courses.html">
+                <div class="sidebar-item active">
+                    <span class="text-xl">📚</span>
+                    <span>My Courses</span>
+                </div>
+            </a>
+            <a href="certificates.html">
+                <div class="sidebar-item">
+                    <span class="text-xl">🎓</span>
+                    <span>My Certificates</span>
+                </div>
+            </a>
+            <div class="sidebar-item">
+                <span class="text-xl">🔥</span>
+                <span>FLAMES '25</span>
+            </div>
+        </nav>
+        
+        <!-- Learning Section -->
+        <div class="sidebar-section">Learning</div>
+        <nav>
+            <div class="sidebar-item">
+                <span class="text-xl">💻</span>
+                <span>Coding Playground</span>
+            </div>
+        </nav>
+        
+        <!-- Collaboration Section -->
+        <div class="sidebar-section">Collaboration</div>
+        <nav>
+            <div class="sidebar-item">
+                <span class="text-xl">👥</span>
+                <span>Hackathon Teams</span>
+                <span class="ml-auto">🚀</span>
+            </div>
+        </nav>
+        
+        <!-- Help Desk Section -->
+        <div class="sidebar-section">Help Desk</div>
+        <nav>
+            <div class="sidebar-item">
+                <span class="text-xl">💬</span>
+                <span>Support</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="text-xl">📖</span>
+                <span>Documentation</span>
+            </div>
+        </nav>
+    </aside>
+    
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+    <main class="main-content">
+        
+        <!-- Top Bar -->
+        <div class="top-bar p-6">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center gap-4">
+                    <button class="w-10 h-10 glass-panel rounded-full flex items-center justify-center hover:bg-orange-500/10 transition">
+                        ←
+                    </button>
+                    <div>
+                        <h1 class="text-3xl font-bold">ALL COURSES 🔥</h1>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- Stats Badges -->
+                    <div class="stats-badge">
+                        <span class="text-2xl">🔥</span>
+                        <span class="text-xl font-bold">0</span>
+                    </div>
+                    <div class="stats-badge">
+                        <span class="text-2xl">⚡</span>
+                        <span class="text-xl font-bold">1</span>
+                    </div>
+                    
+                    <!-- User Profile -->
+                    <div class="flex items-center gap-3 glass-panel px-4 py-2 rounded-full">
+                        <img src="https://ui-avatars.com/api/?name=S&background=FF4500&color=fff" alt="Profile" class="w-10 h-10 rounded-full">
+                        <div class="hidden md:block">
+                            <div class="font-semibold text-sm">Hi, Student</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="w-10 h-10 glass-panel rounded-full flex items-center justify-center hover:bg-orange-500/10 transition">
+                        🌙
+                    </button>
+                    
+                    <!-- Settings -->
+                    <button class="w-10 h-10 glass-panel rounded-full flex items-center justify-center hover:bg-orange-500/10 transition">
+                        ⚙️
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Filters -->
+        <div class="p-6">
+            <div class="flex flex-wrap gap-3 mb-8">
+                <div class="filter-tab active">All Courses</div>
+                <div class="filter-tab">In Progress</div>
+                <div class="filter-tab">Completed</div>
+                <div class="filter-tab">Not Started</div>
+            </div>
+        </div>
+        
+        <!-- Courses Grid -->
+        <div class="px-6 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Course 1: Super 150 -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137006/wmremove-transformed_9_wsan2v.png" alt="Super 150" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            Super 150 🔥
+                        </h3>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Course 2: DSA Self Paced -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137009/wmremove-transformed_8_cltffe.png" alt="DSA Self Paced" class="course-thumbnail">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-center">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            DSA Self Paced 🔥
+                        </h3>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Course 3: Weekly BonFire | Super 150 -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137008/wmremove-transformed_7_dwyuac.png" alt="Weekly BonFire Super 150" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            Weekly BonFire | Super 150 🔥
+                        </h3>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Course 4: B.Sc CS 2nd Year Honours -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.5s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771069606/wmremove-transformed_1_cnaxyu.png" alt="B.Tech CSE" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            B.Sc CS 2nd Year Honours 🔥
+                        </h3>
+                        <button class="btn-enroll mb-2">Enroll Now</button>
+                        <p class="text-xs text-teal-400 text-center">Require Extra Info!</p>
+                    </div>
+                </div>
+                
+                <!-- Course 5: C Programming DayWise RoadMap -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.6s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137010/wmremove-transformed_2_ok5vvr.png" alt="C Programming" class="course-thumbnail">
+                        
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            C Programming DayWise RoadMap 🔥
+                        </h3>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Course 6: DSA using C -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.7s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137010/wmremove-transformed_6_g0vue6.png" alt="DSA using C" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            DSA using C 🔥
+                        </h3>
+                        <button class="btn-enroll mb-2">Enroll Now</button>
+                        <p class="text-xs text-teal-400 text-center">Require Extra Info!</p>
+                    </div>
+                </div>
+                
+                <!-- Course 7: Python In GNIOT -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.8s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137008/wmremove-transformed_5_ahb4pq.png" alt="Python GNIOT" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            Python In DU 🔥
+                        </h3>
+                        <button class="btn-enroll mb-2">Enroll Now</button>
+                        <p class="text-xs text-teal-400 text-center">Require Extra Info!</p>
+                    </div>
+                </div>
+                
+                <!-- Course 8: GLA Super150 3rd Year Exam -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 0.9s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137007/wmremove-transformed_3_ttddmj.png" alt="GLA Super150 Exam" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            DU Super150 3rd Year Exam 🔥
+                        </h3>
+                        <button class="btn-enroll mb-2">Enroll Now</button>
+                        <p class="text-xs text-teal-400 text-center">Require Extra Info!</p>
+                    </div>
+                </div>
+                
+                <!-- Course 9: Java Programming -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 1s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137008/wmremove-transformed_4_lkbubd.png" alt="Java Programming" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            Java Programming 🔥
+                        </h3>
+                        <button class="btn-enroll mb-2">Enroll Now</button>
+                        <p class="text-xs text-teal-400 text-center">Require Extra Info!</p>
+                    </div>
+                </div>
+                
+                <!-- Course 10: FLARE 1.0 | DSA with Java -->
+                <div class="course-card glass-panel rounded-xl overflow-hidden scroll-animate" style="animation-delay: 1.1s;">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771137011/wmremove-transformed_1_bmwy7c.png" alt="FLARE 1.0" class="course-thumbnail">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            FLARE 1.0 | DSA with Java 🔥
+                        </h3>
+                        <button class="btn-enroll mb-2">Enroll Now</button>
+                        <p class="text-xs text-teal-400 text-center">Require Extra Info!</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </main>
+    
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        /* Network Animation */
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const nodes = [];
+        const nodeCount = 80;
+        const maxDistance = 150;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 69, 0, 0.5)';
+                ctx.fill();
+            }
+        }
+        
+        function initNodes() {
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push(new Node());
+            }
+        }
+        
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(255, 69, 0, ${(1 - distance / maxDistance) * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+        
+        initNodes();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        /* Mouse Interaction */
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+            
+            nodes.forEach(node => {
+                const dx = mouse.x - node.x;
+                const dy = mouse.y - node.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    node.x -= dx * 0.01;
+                    node.y -= dy * 0.01;
+                }
+            });
+        });
+        
+        /* Sidebar Toggle */
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('mobile-active');
+        });
+        
+        /* Sidebar Navigation */
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        /* Filter Tabs */
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        /* Scroll Animations */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

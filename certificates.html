@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certificates - The Angaar Batch | Earn Industry-Recognized Certificates">
+    <title>Certificates - The Angaar Batch | We Believe in Trust</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --fire-primary: #FF4500;
+            --fire-secondary: #FF6B35;
+            --fire-accent: #FFA500;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Network Canvas */
+        #networkCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Fire Gradients */
+        .fire-gradient {
+            background: linear-gradient(135deg, #FF4500 0%, #FF6B35 50%, #FFA500 100%);
+        }
+        
+        .fire-text-gradient {
+            background: linear-gradient(135deg, #FF4500, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 69, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-strong {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+        
+        /* Buttons */
+        .btn-fire {
+            background: linear-gradient(135deg, #FF4500, #FF6B35);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+        }
+        
+        .btn-fire:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.6);
+        }
+        
+        .btn-outline-fire {
+            border: 2px solid #FF4500;
+            padding: 10px 30px;
+            border-radius: 50px;
+            background: transparent;
+            color: #FF4500;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-outline-fire:hover {
+            background: #FF4500;
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 69, 0, 0.7); }
+        }
+        
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scale-in {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Glow Effects */
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .glow-strong {
+            box-shadow: 0 0 40px rgba(255, 87, 34, 0.8);
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF4500, #FFA500);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #FF4500, #FFA500);
+            border-radius: 5px;
+        }
+        
+        /* Certificate Card */
+        .certificate-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 69, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        
+        .certificate-card:hover::before {
+            left: 100%;
+        }
+        
+        .certificate-card:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Badge Styles */
+        .badge {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .badge::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF4500, #FFA500);
+            animation: rotate-slow 3s linear infinite;
+            opacity: 0.5;
+        }
+        
+        .badge-inner {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(20, 20, 20, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        /* Progress Ring */
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        
+        /* Steps Timeline */
+        .step-card {
+            position: relative;
+        }
+        
+        .step-card::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 2px;
+            height: calc(100% + 40px);
+            background: linear-gradient(180deg, #FF4500, transparent);
+            transform: translateX(-50%);
+        }
+        
+        .step-card:last-child::after {
+            display: none;
+        }
+        
+        /* Certificate Template */
+        .certificate-template {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 4px solid;
+            border-image: linear-gradient(135deg, #FF4500, #FFA500) 1;
+            position: relative;
+        }
+        
+        .certificate-template::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            pointer-events: none;
+        }
+        
+        /* Floating Particles */
+        .floating-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FF4500;
+            border-radius: 50%;
+            animation: float-particle 8s infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-10px);
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Network Animation Canvas -->
+    <canvas id="networkCanvas"></canvas>
+    
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 glass-panel transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 fire-gradient rounded-lg flex items-center justify-center">
+                        <img 
+                            src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" 
+                            alt="The Angaar Batch"
+                            class="w-full h-full object-contain"
+                        > 
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">The Angaar Batch</h1>
+                        <p class="text-xs text-gray-400">We Believe in Trust</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-sm font-medium hover:text-orange-500">Home</a>
+                    <a href="about.html" class="nav-link text-sm font-medium hover:text-orange-500">About</a>
+                    <a href="our-team.html" class="nav-link text-sm font-medium hover:text-orange-500">Our Team</a>
+                    <a href="index.html#projects" class="nav-link text-sm font-medium hover:text-orange-500">Projects</a>
+                    <a href="index.html#reviews" class="nav-link text-sm font-medium hover:text-orange-500">Reviews</a>
+                    <a href="dashboard.html" class="btn-fire text-sm">Dashboard</a>
+                </div>
+                
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-gray-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="mobile-menu lg:hidden fixed top-0 right-0 h-full w-64 glass-strong z-50">
+            <div class="p-6">
+                <button id="closeMobileMenu" class="mb-8 text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-lg hover:text-orange-500">Home</a>
+                    <a href="about.html" class="text-lg hover:text-orange-500">About</a>
+                    <a href="our-team.html" class="text-lg hover:text-orange-500">Our Team</a>
+                    <a href="index.html#projects" class="nav-link text-sm font-medium hover:text-orange-500">Projects</a>
+                    <a href="index.html#reviews" class="nav-link text-sm font-medium hover:text-orange-500">Reviews</a>
+                    <a href="dashboard.html" class="btn-fire text-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 via-orange-900/20 to-yellow-900/20"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/30 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/30 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div class="scroll-animate">
+                <div class="inline-block mb-6 px-6 py-3 glass-panel rounded-full">
+                    <span class="text-orange-500 font-semibold">🎓 Industry-Recognized Certificates</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6">
+                    Free <span class="fire-text-gradient">Certification</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Earn Certificates That Matter in Your Career
+                </p>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    100% Free certificates upon course completion. Shareable on LinkedIn and recognized by industry professionals.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                    <a href="#available-certificates" class="btn-fire text-lg">View Certificates 🏆</a>
+                    <a href="#how-to-earn" class="btn-outline-fire text-lg">How to Earn</a>
+                </div>
+                
+                <!-- Badge Showcase -->
+                <div class="flex justify-center gap-8 flex-wrap">
+                    <div class="badge animate-float">
+                        <div class="badge-inner">🏆</div>
+                    </div>
+                    <div class="badge animate-float" style="animation-delay: 0.5s;">
+                        <div class="badge-inner">⭐</div>
+                    </div>
+                    <div class="badge animate-float" style="animation-delay: 1s;">
+                        <div class="badge-inner">🎓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         CERTIFICATE BENEFITS
+    ======================================== -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Why Our <span class="fire-text-gradient">Certificates</span>
+                </h2>
+                <p class="text-xl text-gray-400">Stand out in the competitive job market</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-panel p-6 rounded-xl text-center glow-hover scroll-animate">
+                    <div class="text-5xl mb-4 animate-float">✓</div>
+                    <h3 class="text-xl font-bold mb-2">100% Free</h3>
+                    <p class="text-gray-400 text-sm">No hidden costs or fees. Completely free for all students.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="text-5xl mb-4 animate-float" style="animation-delay: 0.5s;">💼</div>
+                    <h3 class="text-xl font-bold mb-2">LinkedIn Ready</h3>
+                    <p class="text-gray-400 text-sm">Instantly shareable on LinkedIn with verification.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="text-5xl mb-4 animate-float" style="animation-delay: 1s;">🏢</div>
+                    <h3 class="text-xl font-bold mb-2">Industry Recognized</h3>
+                    <p class="text-gray-400 text-sm">Valued by employers and HR professionals.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="text-5xl mb-4 animate-float" style="animation-delay: 1.5s;">📥</div>
+                    <h3 class="text-xl font-bold mb-2">Instant Download</h3>
+                    <p class="text-gray-400 text-sm">Download in high-quality PDF format immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         HOW TO EARN
+    ======================================== -->
+    <section id="how-to-earn" class="py-20 relative bg-gradient-to-b from-transparent via-orange-900/5 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    How to <span class="fire-text-gradient">Earn</span>
+                </h2>
+                <p class="text-xl text-gray-400">Simple 4-step process</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="step-card scroll-animate text-center">
+                    <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 glow-strong">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Enroll in Course</h3>
+                    <p class="text-gray-400">Register for any of our free courses</p>
+                </div>
+                
+                <div class="step-card scroll-animate text-center" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 glow-strong">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Complete Modules</h3>
+                    <p class="text-gray-400">Finish all course modules and assignments</p>
+                </div>
+                
+                <div class="step-card scroll-animate text-center" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 glow-strong">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pass Assessment</h3>
+                    <p class="text-gray-400">Score 70% or above in final exam</p>
+                </div>
+                
+                <div class="step-card scroll-animate text-center" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 fire-gradient rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 glow-strong">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Get Certificate</h3>
+                    <p class="text-gray-400">Download your certificate instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         AVAILABLE CERTIFICATES
+    ======================================== -->
+    <section id="available-certificates" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Available <span class="fire-text-gradient">Certificates</span>
+                </h2>
+                <p class="text-xl text-gray-400">Choose your path to certification</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Python Certificate -->
+                <div class="certificate-card glass-panel p-8 rounded-2xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">🐍</div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Python Programming</h3>
+                                <p class="text-sm text-gray-400">Complete Certification</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">
+                            Active
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-400">Completion Progress</span>
+                            <span class="text-sm font-bold">85%</span>
+                        </div>
+                        <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full fire-gradient" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span>
+                            <span class="text-gray-400">12 Weeks Course Duration</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span>
+                            <span class="text-gray-400">50+ Projects Completed</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-orange-400">⏳</span>
+                            <span class="text-gray-400">Final Assessment Pending</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-fire">Continue Learning</button>
+                </div>
+                
+                <!-- C Programming Certificate -->
+                <div class="certificate-card glass-panel p-8 rounded-2xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">⚙️</div>
+                            <div>
+                                <h3 class="text-2xl font-bold">C Programming</h3>
+                                <p class="text-sm text-gray-400">Complete Certification</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold">
+                            Active
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-400">Completion Progress</span>
+                            <span class="text-sm font-bold">65%</span>
+                        </div>
+                        <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full fire-gradient" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span>
+                            <span class="text-gray-400">10 Weeks Course Duration</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-orange-400">⏳</span>
+                            <span class="text-gray-400">26/40 Projects Completed</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">○</span>
+                            <span class="text-gray-400">Final Assessment Locked</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-fire">Continue Learning</button>
+                </div>
+                
+                <!-- DSA Certificate -->
+                <div class="certificate-card glass-panel p-8 rounded-2xl opacity-75">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">🧠</div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Data Structures & Algorithms</h3>
+                                <p class="text-sm text-gray-400">Advanced Certification</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-gray-500/20 text-gray-400 rounded-full text-sm font-semibold">
+                            Locked
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-400">Completion Progress</span>
+                            <span class="text-sm font-bold">0%</span>
+                        </div>
+                        <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full fire-gradient" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">🔒</span>
+                            <span class="text-gray-400">Complete Python or C first</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">○</span>
+                            <span class="text-gray-400">16 Weeks Course Duration</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">○</span>
+                            <span class="text-gray-400">200+ Problems to Solve</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-outline-fire" disabled>Coming Soon</button>
+                </div>
+                
+                <!-- Web Development Certificate -->
+                <div class="certificate-card glass-panel p-8 rounded-2xl opacity-75">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">🌐</div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Web Development</h3>
+                                <p class="text-sm text-gray-400">Full Stack Certification</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-gray-500/20 text-gray-400 rounded-full text-sm font-semibold">
+                            Locked
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-400">Completion Progress</span>
+                            <span class="text-sm font-bold">0%</span>
+                        </div>
+                        <div class="h-3 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full fire-gradient" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">🔒</span>
+                            <span class="text-gray-400">Launching Q2 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">○</span>
+                            <span class="text-gray-400">20 Weeks Course Duration</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-600">○</span>
+                            <span class="text-gray-400">30+ Real-World Projects</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-outline-fire" disabled>Coming Soon</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         CERTIFICATE PREVIEW
+    ======================================== -->
+    <section class="py-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Certificate <span class="fire-text-gradient">Preview</span>
+                </h2>
+                <p class="text-xl text-gray-400">See what you'll earn</p>
+            </div>
+            
+            <div class="scroll-animate-scale">
+                <div class="certificate-template p-12 rounded-xl relative">
+                    <!-- Floating Particles -->
+                    <div class="floating-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                    <div class="floating-particle" style="top: 70%; left: 85%; animation-delay: 2s;"></div>
+                    <div class="floating-particle" style="top: 40%; left: 90%; animation-delay: 4s;"></div>
+                    <div class="floating-particle" style="top: 80%; left: 15%; animation-delay: 6s;"></div>
+                    
+                    <div class="text-center relative z-10">
+                        <div class="inline-block mb-6">
+                            <div class="w-20 h-20 fire-gradient rounded-lg flex items-center justify-center">
+                            <img 
+                                src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" 
+                                alt="The Angaar Batch"
+                                class="w-full h-full object-contain"
+                            > 
+                        </div>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">The Angaar Batch</h3>
+                        <p class="text-gray-400 mb-8">Certificate of Completion</p>
+                        
+                        <div class="my-12">
+                            <p class="text-lg text-gray-400 mb-4">This certifies that</p>
+                            <h4 class="text-5xl font-bold mb-6 fire-text-gradient">[Your Name]</h4>
+                            <p class="text-lg text-gray-400 mb-3">has successfully completed</p>
+                            <h5 class="text-3xl font-semibold mb-8">Python Programming Masterclass</h5>
+                            <p class="text-sm text-gray-500">Issued on: February 14, 2026</p>
+                        </div>
+                        
+                        <div class="flex items-center justify-center gap-24 my-12">
+                            <div class="text-center">
+                                <div class="w-24 h-1 fire-gradient mb-2 mx-auto"></div>
+                                <p class="text-sm text-gray-400">Instructor Signature</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-24 h-1 fire-gradient mb-2 mx-auto"></div>
+                                <p class="text-sm text-gray-400">Director Signature</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-center gap-8 text-sm text-gray-500">
+                            <div>ID: TAB-2026-001234</div>
+                            <div>•</div>
+                            <div>Verify at: verify.angaarbatch.com</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <button class="btn-fire px-8 py-3" onclick="downloadCertificate()">
+                        Download Sample Certificate 📥
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         VERIFICATION SYSTEM
+    ======================================== -->
+    <section class="py-20 relative bg-gradient-to-b from-transparent via-orange-900/5 to-transparent">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Certificate <span class="fire-text-gradient">Verification</span>
+                </h2>
+                <p class="text-xl text-gray-400">Verify any certificate instantly</p>
+            </div>
+            
+            <div class="glass-strong p-8 rounded-2xl scroll-animate">
+                <div class="text-center mb-8">
+                    <p class="text-gray-400">Enter the certificate ID to verify authenticity</p>
+                </div>
+                
+                <div class="flex gap-4 mb-6">
+                    <input type="text" placeholder="Enter Certificate ID (e.g., TAB-2026-001234)" class="flex-1 bg-gray-900 px-6 py-4 rounded-lg outline-none focus:ring-2 focus:ring-orange-500 transition">
+                    <button class="btn-fire px-8">Verify</button>
+                </div>
+                
+                <div class="flex items-center justify-center gap-4 text-sm text-gray-500">
+                    <span>✓ Instant Verification</span>
+                    <span>•</span>
+                    <span>✓ Secure Database</span>
+                    <span>•</span>
+                    <span>✓ Employer Friendly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         FEATURES
+    ======================================== -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Certificate <span class="fire-text-gradient">Features</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-xl text-center glow-hover scroll-animate">
+                    <div class="text-5xl mb-4">🔐</div>
+                    <h3 class="text-xl font-bold mb-3">Unique ID</h3>
+                    <p class="text-gray-400">Every certificate has a unique verification ID for authenticity</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-3">Digital Badge</h3>
+                    <p class="text-gray-400">Add digital badge to your email signature and resume</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="text-5xl mb-4">🌍</div>
+                    <h3 class="text-xl font-bold mb-3">Global Recognition</h3>
+                    <p class="text-gray-400">Accepted worldwide by employers and educational institutions</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-3">Instant Delivery</h3>
+                    <p class="text-gray-400">Receive your certificate immediately upon course completion</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="text-5xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold mb-3">Professional Design</h3>
+                    <p class="text-gray-400">Beautifully designed certificates with premium quality</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-xl text-center glow-hover scroll-animate" style="animation-delay: 0.5s;">
+                    <div class="text-5xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold mb-3">Lifetime Access</h3>
+                    <p class="text-gray-400">Re-download your certificate anytime from your dashboard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         FAQ
+    ======================================== -->
+    <section class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Frequently Asked <span class="fire-text-gradient">Questions</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="glass-panel p-6 rounded-xl scroll-animate">
+                    <h3 class="text-xl font-bold mb-2">Are the certificates really free?</h3>
+                    <p class="text-gray-400">Yes! All certificates are 100% free. No hidden charges, no fees. We believe in trust.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl scroll-animate">
+                    <h3 class="text-xl font-bold mb-2">How do I get my certificate?</h3>
+                    <p class="text-gray-400">Complete all course modules, pass the final assessment with 70%+ score, and your certificate will be instantly available for download.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl scroll-animate">
+                    <h3 class="text-xl font-bold mb-2">Can I share on LinkedIn?</h3>
+                    <p class="text-gray-400">Absolutely! Our certificates come with LinkedIn-compatible credentials that you can add to your profile.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl scroll-animate">
+                    <h3 class="text-xl font-bold mb-2">Is there an expiry date?</h3>
+                    <p class="text-gray-400">No. Our certificates never expire and you have lifetime access to re-download them.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-xl scroll-animate">
+                    <h3 class="text-xl font-bold mb-2">Are certificates recognized by employers?</h3>
+                    <p class="text-gray-400">Yes. Our certificates are valued by recruiters and demonstrate your commitment to learning and skill development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-strong p-12 rounded-2xl scroll-animate">
+                <div class="text-6xl mb-6 animate-float">🎓</div>
+                <h2 class="text-4xl font-bold mb-4">Ready to Earn Your Certificate?</h2>
+                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Start learning today and add industry-recognized certificates to your resume
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#courses" class="btn-fire text-lg px-8 py-4">Explore Courses</a>
+                    <a href="dashboard.html" class="btn-outline-fire text-lg px-8 py-4">View My Progress</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="relative py-20 border-t border-orange-500/20">
+        <div class="absolute inset-0 bg-gradient-to-t from-orange-900/10 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-40 h-40 fire-gradient rounded-lg flex items-center justify-center">
+                            <img 
+                                src="https://res.cloudinary.com/dmzjlfnuz/image/upload/v1771071364/20260214_174443_oyeu4x.jpg" 
+                                alt="The Angaar Batch"
+                                class="w-full h-full object-contain"
+                            > 
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">The Angaar Batch</h3>
+                            <p class="text-sm text-gray-400">We Believe in Trust</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Empowering students with world-class coding education and industry-recognized certifications since 2018.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-orange-500 transition">About</a></li>
+                        <li><a href="index.html#courses" class="text-gray-400 hover:text-orange-500 transition">Courses</a></li>
+                        <li><a href="index.html#projects" class="text-gray-400 hover:text-orange-500 transition">Projects</a></li>
+                        <li><a href="index.html#reviews" class="text-gray-400 hover:text-orange-500 transition">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>📧 team@theangaarbatch.in</li>
+                        <li>📱 +91 8273619318</li>
+                        <li>📍 Mathura, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="h-px fire-gradient mb-8"></div>
+            
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2024 The Angaar Batch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        /* Network Animation */
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const nodes = [];
+        const nodeCount = 80;
+        const maxDistance = 150;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 69, 0, 0.5)';
+                ctx.fill();
+            }
+        }
+        
+        function initNodes() {
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push(new Node());
+            }
+        }
+        
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(255, 69, 0, ${(1 - distance / maxDistance) * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+        
+        initNodes();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        /* Mouse Interaction */
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+            
+            nodes.forEach(node => {
+                const dx = mouse.x - node.x;
+                const dy = mouse.y - node.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    node.x -= dx * 0.01;
+                    node.y -= dy * 0.01;
+                }
+            });
+        });
+        
+        /* Mobile Menu */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        /* Scroll Animations */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-animate, .scroll-animate-scale').forEach(el => {
+            observer.observe(el);
+        });
+        
+        /* Sticky Navigation */
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-black/95', 'shadow-2xl');
+            } else {
+                nav.classList.remove('bg-black/95', 'shadow-2xl');
+            }
+        });
+        
+        /* Certificate Download */
+        function downloadCertificate() {
+            alert('Certificate download initiated! In production, this will generate a PDF.');
+        }
+    </script>
+</body>
+</html>
